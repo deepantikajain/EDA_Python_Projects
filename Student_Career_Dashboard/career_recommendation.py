@@ -30,7 +30,7 @@ def career_recommendation_system():
 
     st.dataframe(score_df.sort_values("Match %", ascending=False), height=200)
 
-    # 📊 SMALL CHART
+    
     fig, ax = plt.subplots(figsize=(3.2, 2.1), dpi=100)
     ax.bar(score_df["Career"], score_df["Match %"])
     ax.tick_params(labelsize=7)
