@@ -22,7 +22,7 @@ def student_result_dashboard():
         total = df["Marks"].sum()
         avg = df["Marks"].mean()
 
-        # 🎯 KPI Cards
+        
         k1, k2, k3 = st.columns(3)
         with k1:
             st.markdown(f"<div class='kpi'>Total Marks<br><b>{total}</b></div>", unsafe_allow_html=True)
@@ -45,7 +45,7 @@ def student_result_dashboard():
 
         # ================= SEABORN GRAPHS =================
 
-        # 1️⃣ Seaborn Barplot
+        
         st.markdown("### 📊 Seaborn Barplot")
         fig1, ax1 = plt.subplots(figsize=(3.2, 2.1), dpi=100)
         sns.barplot(x="Subject", y="Marks", data=df, ax=ax1)
@@ -53,7 +53,7 @@ def student_result_dashboard():
         plt.tight_layout()
         st.pyplot(fig1, use_container_width=False)
 
-        # 2️⃣ Histogram (Distribution)
+        
         st.markdown("### 📉 Marks Distribution (Histogram)")
         fig2, ax2 = plt.subplots(figsize=(3.2, 2.1), dpi=100)
         sns.histplot(df["Marks"], bins=5, kde=True, ax=ax2)
@@ -61,7 +61,7 @@ def student_result_dashboard():
         plt.tight_layout()
         st.pyplot(fig2, use_container_width=False)
 
-        # 3️⃣ Boxplot (Outliers)
+        
         st.markdown("### 📦 Boxplot (Outlier Detection)")
         fig3, ax3 = plt.subplots(figsize=(3.2, 2.1), dpi=100)
         sns.boxplot(y=df["Marks"], ax=ax3)
@@ -69,7 +69,7 @@ def student_result_dashboard():
         plt.tight_layout()
         st.pyplot(fig3, use_container_width=False)
 
-        # 4️⃣ Heatmap (EDA Concept)
+        
         st.markdown("### 🔥 Correlation Heatmap (EDA)")
         corr = df[["Marks"]].corr()
         fig4, ax4 = plt.subplots(figsize=(3, 2.2), dpi=100)
@@ -77,7 +77,7 @@ def student_result_dashboard():
         plt.tight_layout()
         st.pyplot(fig4, use_container_width=False)
 
-        # 🔍 EDA Insights
+        
         st.markdown("### 🔍 EDA Insights")
         st.write("Highest Score:", df.loc[df["Marks"].idxmax(), "Subject"])
         st.write("Lowest Score:", df.loc[df["Marks"].idxmin(), "Subject"])
