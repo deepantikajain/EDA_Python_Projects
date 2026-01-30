@@ -47,14 +47,14 @@ def resume_builder():
 
         st.markdown("</div>", unsafe_allow_html=True)
 
-        # 📊 SMALL SKILL BAR CHART
+        
         fig, ax = plt.subplots(figsize=(3.2, 2.1), dpi=100)
         ax.barh(df["Skill"], df["Level"])
         ax.tick_params(labelsize=7)
         plt.tight_layout()
         st.pyplot(fig, use_container_width=False)
 
-        # 🕸️ RADAR CHART
+       
         labels = df["Skill"].tolist()
         values = df["Level"].tolist()
         values += values[:1]
