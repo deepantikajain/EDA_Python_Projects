@@ -3,27 +3,26 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ------------------ PAGE CONFIG ------------------
+
 st.set_page_config(
     page_title="Electronics Sales Analytics Dashboard",
     layout="wide"
 )
 
-# ------------------ CUSTOM CSS ------------------
-# ------------------ CUSTOM CSS ------------------
+
 st.markdown("""
 <style>
-/* Main app background */
+
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, #1e242c, #2b323c);
 }
 
-/* Sidebar background */
+
 [data-testid="stSidebar"] {
     background: #1a1f26;
 }
 
-/* Headings - muted, not bright */
+
 h1 {
     color: #d6d9de;
 }
@@ -31,7 +30,7 @@ h2, h3, h4 {
     color: #cfd4da;
 }
 
-/* Normal text */
+
 p, label, span {
     color: #b8bec6;
 }
@@ -53,8 +52,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
-# ------------------ LOAD DATA ------------------
 @st.cache_data
 def load_data():
     df = pd.read_csv("sales_data.csv")
@@ -63,7 +60,6 @@ def load_data():
 
 df = load_data()
 
-# ------------------ SIDEBAR FILTERS ------------------
 st.sidebar.title("🎯 Filters")
 
 region_filter = st.sidebar.multiselect(
@@ -83,11 +79,11 @@ filtered_df = df[
     (df["Product"].isin(product_filter))
 ]
 
-# ------------------ TITLE ------------------
+
 st.title("📊 Electronics Sales Analytics Dashboard")
 st.caption("Interactive dashboard with KPIs and Exploratory Data Analysis")
 
-# ------------------ KPI SECTION ------------------
+
 total_revenue = filtered_df["Revenue"].sum()
 total_units = filtered_df["Units_Sold"].sum()
 avg_units = filtered_df["Units_Sold"].mean()
@@ -99,10 +95,9 @@ col3.metric("📈 Avg Units per Day", f"{avg_units:.2f}")
 
 st.markdown("---")
 
-# ------------------ CHARTS ------------------
+
 col1, col2 = st.columns(2)
 
-# Revenue by Product
 with col1:
     st.subheader("Revenue by Product")
     fig, ax = plt.subplots(figsize=(5, 3))
@@ -124,26 +119,25 @@ with col2:
 
 st.markdown("---")
 
-# ------------------ EDA SECTION ------------------
+
 st.subheader("📊 Exploratory Data Analysis")
 
 col1, col2 = st.columns(2)
 
-# Revenue Distribution
 with col1:
     st.write("Revenue Distribution")
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.histplot(filtered_df["Revenue"], kde=True, ax=ax)
     st.pyplot(fig)
 
-# Revenue by Region
+
 with col2:
     st.write("Revenue by Region")
     fig, ax = plt.subplots(figsize=(5, 3))
     sns.boxplot(x="Region", y="Revenue", data=filtered_df, ax=ax)
     st.pyplot(fig)
 
-# Correlation Heatmap
+
 st.subheader("Correlation Heatmap")
 fig, ax = plt.subplots(figsize=(6, 3))
 corr = filtered_df[["Revenue", "Units_Sold"]].corr()
@@ -152,9 +146,9 @@ st.pyplot(fig)
 
 st.markdown("---")
 
-# ------------------ DATA TABLE ------------------
 st.subheader("📋 Sales Data")
 st.dataframe(
     filtered_df.sort_values(by="Date", ascending=False),
     use_container_width=True
 )
+
