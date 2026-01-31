@@ -11,6 +11,8 @@ Dashboard walkthrough video:
 
 project.mp4
 
+If the video does not play directly on GitHub, please download and view it locally
+
 ---
 
 ## Project Overview
