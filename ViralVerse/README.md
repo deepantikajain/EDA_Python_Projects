@@ -29,6 +29,16 @@ The dataset contains 2,000 social media posts and 15 attributes including:
 - Sentiment Score
 - Viral Status
 
+## 📌 Dataset Source
+
+This project uses the **Social Media Viral Content & Engagement Metrics** dataset from Kaggle.
+
+🔗 **Dataset:** [Social Media Viral Content & Engagement Metrics](https://www.kaggle.com/datasets/aliiihussain/social-media-viral-content-and-engagement-metrics?resource=download)
+
+The original dataset was imported into a staging table and then transformed into a normalized relational database for SQL Server analysis.
+
+The dataset is used for educational and academic purposes.
+
 ## 🛠️ Technology
 
 - Microsoft SQL Server
