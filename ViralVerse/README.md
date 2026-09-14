@@ -1,4 +1,4 @@
-# ViralVerse 📱🔥
+# ViralVerse 📱
 
 ### A Relational Database for Understanding Social Media Virality
 
